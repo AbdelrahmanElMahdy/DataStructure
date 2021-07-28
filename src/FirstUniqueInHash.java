@@ -25,4 +25,29 @@ public class FirstUniqueInHash {
         }
         return unique;
     }
+    //modified function
+public static Character unique (String sentence){
+    Map<Character,Integer> map=new HashMap<>();
+    ArrayList<Character> lst = new ArrayList<>();
+    char uniqueChr = ' ';
+    for( char c : sentence.toCharArray() ){
+        lst.add(c);
+        if (map.containsKey(c))
+            map.replace(c,map.get(c)+1);
+                         
+        else
+            map.put(c,0);
+    
+       
+    }
+    for(char chr : lst){
+        if(map.get(chr)==0){
+            uniqueChr=chr;
+            break;
+        }
+    }
+
+    return uniqueChr;
+
+}
 }
