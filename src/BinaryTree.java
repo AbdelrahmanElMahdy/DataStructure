@@ -20,8 +20,14 @@ public class BinaryTree {
     }
 
     public void insert(int value){
+       // if(found(value))
+        //throw new IllegalArgumentException("Already exist binary tree can't have duplicated value");
+    
+        // if(this.root == null)
+        // this.root.
+
         Node crNode= root;
-        boolean isRight= crNode.value < value;
+        boolean isRight= value > crNode.value;
 
         while( ( crNode.right != null && isRight )  || ( crNode.left != null && !isRight ) ){
             if( value > crNode.value )
@@ -40,6 +46,30 @@ public class BinaryTree {
 
 }
     
+    public boolean found(int value) {
+        
+        Node crNode= root;
+        boolean isRight= value > crNode.value;
+        boolean found  = false ;
 
+        while( crNode != null ){
+           
+            if (value == crNode.value){
+                found= true;
+                return found;
+            }   
+            if(isRight)
+                crNode = crNode.right;
 
+            else
+                crNode = crNode.left;            
+            
+            try {
+                isRight= value > crNode.value;
+            } catch (Exception e) {
+                isRight=false;
+            }
+}       
+        return found ;
+ }
 }
