@@ -18,13 +18,20 @@ public class BinaryTree {
     public BinaryTree(int value){
         this.root=new Node(value);
     }
+    public BinaryTree(){
+    }
 
     public void insert(int value){
-       // if(found(value))
-        //throw new IllegalArgumentException("Already exist binary tree can't have duplicated value");
+        
+        if(this.root == null){
+            this.root=new Node(value);
+            return;
+           
+        }
+          
+        if(found(value))
+        throw new IllegalArgumentException("value: "+ value + " Already exist. binary tree could't have duplicated value");
     
-        // if(this.root == null)
-        // this.root.
 
         Node crNode= root;
         boolean isRight= value > crNode.value;
